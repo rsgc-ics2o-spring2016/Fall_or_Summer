@@ -82,5 +82,17 @@ void mouseClicked() {
   println("total saturation for row " + row + " is: " + totalSaturation);
   println("average saturation for row " + row + " is: " + averageSaturation);
   println("====================================");
+  
+  // Add code for detecting whether it is "blue sky" or "fluffy clouds" here
+  // Psuedocode is:
+  // 
+  // When the average hue is in the range 205 to 220
+  //  AND the average brightness is in the range 80 to 90
+  //        -- this could be blue sky or it might be fluffy clouds
+  //        When the average saturation is in the range 0 to 20
+  //            -- these are fluffy clouds
+  //        when the average saturation is in the range 60 to 90
+  //            -- this is blue sky
+  //
 
 }
