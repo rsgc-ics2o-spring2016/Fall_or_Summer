@@ -35,9 +35,52 @@ void draw() {
   
   // Get the hue of the pixel the mouse is pointing at
   float currentHue = hue(pixels[pixelPosition]);
+  float currentSaturation = saturation(pixels[pixelPosition]);
+  float currentBrightness = brightness(pixels[pixelPosition]);
   
   // Report the results
   fill(0);
   text("Hue of current pixel is: " + currentHue, width - 250, 25);
+  text("Saturation of current pixel is: " + currentSaturation, width - 250, 50);
+  text("Brightness of current pixel is: " + currentBrightness, width - 250, 75);
   
+}
+
+void mouseClicked() {
+  
+  // Show the sum of brightness for a single row
+  loadPixels();
+  int row = mouseY;
+
+  // Brightness
+  int totalBrightness = 0;
+  for (int column = 0; column < width; column ++) {
+    int position = row * width + column;
+    totalBrightness += brightness(pixels[position]);
+  }
+  float averageBrightness = (float) totalBrightness / width;
+  println("total brightness for row " + row + " is: " + totalBrightness);
+  println("average brightness for row " + row + " is: " + averageBrightness);
+  
+  // Hue
+  int totalHue = 0;
+  for (int column = 0; column < width; column ++) {
+    int position = row * width + column;
+    totalHue += hue(pixels[position]);
+  }
+  float averageHue = (float) totalHue / width;
+  println("total hue for row " + row + " is: " + totalHue);
+  println("average hue for row " + row + " is: " + averageHue);
+
+  // Saturation
+  int totalSaturation = 0;
+  for (int column = 0; column < width; column ++) {
+    int position = row * width + column;
+    totalSaturation += saturation(pixels[position]);
+  }
+  float averageSaturation = (float) totalSaturation / width;
+  println("total saturation for row " + row + " is: " + totalSaturation);
+  println("average saturation for row " + row + " is: " + averageSaturation);
+  println("====================================");
+
 }
